@@ -1,0 +1,44 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+    int a;
+    int b;
+
+    //Start from the beginning of the vector and work our way through
+    //to see if we can find a match within the array that satsifies the target.
+    for(int i = 0; i < nums.size()-1;i++){
+        a = nums[i]; //set a to equal the current pos of the number we are comparing in the array
+        //Ex: a = 1
+        for(int j = i + 1; j < nums.size();j++){ //cant use same num so we do -> int j = i + 1
+            b = nums[j];  //set b to equal the number being compared with a. 
+        //Ex: b = 2,3,4,5 (We are going through each number to see if it matches).
+            if(a + b == target){  //if a and b added equal the target
+                return {i, j}; //returns the positiions such as [0,1].
+            }
+        }
+    }
+    return {}; //return empty set if there are no matches.
+    }
+};
+
+int main(){
+    int target = 9;
+    Solution bog; //creating obj bog
+    vector<int> gob = {1,2,3,4,5};  creating vector gob
+
+    vector<int> update = bog.twoSum(gob, target);  //setting variable update to
+    //help us with iterating through each value for the for loop. But also it is 
+    //important we mention we are using our object bog to access the function within
+    //the class. So we can impliment the vector(gob) and our target(9). 
+
+    //prints out in this case "3 4" to show we used (within the vector) numbers
+    //4 and 5 to get our target 9 and remember their positions are [3] = 4 and 
+    //[4] = 5
+
+    for(int i = 0; i < update.size(); i++){
+        cout << update[i] << " ";
+    }
+
+  cout << endl;
+    return 0;
+}
